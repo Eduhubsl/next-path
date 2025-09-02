@@ -59,13 +59,14 @@ const consultantData = {
   // Add other consultants here...
 };
 
-export default async function ConsultantProfilePage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
-  const consultant = consultantData[params.id as keyof typeof consultantData];
-
-  if (!consultant) {
-    return <div>Consultant not found</div>;
-  }
+export default function ConsultantProfilePage({ params }: { params: { id: string } }) {
+  // The 'await' is removed, and the type is corrected
+  const { id } = params; 
+  
+  const consultant = consultantData[id as keyof typeof consultantData];
+  
+  // ... rest of the component
+}
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-soft-cream to-white">
