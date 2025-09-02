@@ -1,43 +1,28 @@
-Next Path Development Todos
-✅ Completed
- Set up Next.js project with shadcn UI
- Create custom Next Path logo design
- Build main homepage with header, search, and services
- Adapt eChannelling design for educational consulting
- Add educational services (O/L, A/L, Vocational, Graduate consulting)
- Create custom UI components (Button, Input, Card, Badge, Select)
- Build counsellor search results page
- Create detailed counsellor profile page with qualifications
- Implement booking page with calendar and payment summary
-🔨 In Progress
- Create authentication system (login/signup)
- Add interactive calendar functionality
- Implement working search filters
-📋 Todo
- Create student dashboard for appointments
- Add payment integration (Stripe/PayHere)
- Build counsellor admin panel
- Add real-time availability system
- Create appointment confirmation emails
- Add review and rating system
- Implement chat/messaging system
- Add mobile responsive improvements
- Create testimonials section on homepage
- Add blog section for educational content
- Create contact form and support system
- Add FAQ section
-🎯 Key Features to Implement Next
-Authentication System: Login/signup for students and counsellors
-Working Search & Filters: Make the search functionality interactive
-Calendar Integration: Real-time availability and booking
-Payment Gateway: Secure payment processing
-Dashboard: Student and counsellor management panels
-Notifications: Email/SMS confirmations and reminders
-📊 Platform Structure
-Homepage ✅ - Landing page with services and search
-Counsellor Listings ✅ - Search results with filters
-Counsellor Profiles ✅ - Detailed profiles with booking
-Booking System ✅ - Multi-step booking process
-Authentication 🔄 - Login/signup system
-Dashboards 🔄 - Student and counsellor panels
-Payment 🔄 - Secure payment processing
+Nextpath.lk Website Upgrade - Task List
+Design System Setup
+ Customize color palette (muted blues, gentle greens, warm grays, cream)
+ Set up typography (Inter/Poppins + serif for headings)
+ Create rounded, calming component styles
+ Add plenty of white space in layouts
+Core Pages Development
+ Homepage with Hero Section
+ Core Services Section (6 main categories)
+ Consultants Spotlight section
+ Service Landing Page Template (booking + resources + webinars)
+ Consultants Directory Page
+ Consultant Profile Pages
+ Free Resource Display Page Template
+Components & Functionality
+ Booking Component (calendar + time slots)
+ Webinar Registration Form/Modal
+ Service filter functionality
+ Responsive design across all pages
+Content Integration
+ 6 service categories: After O/L, After A/L, Vocational Skills, Undergraduate, Graduate, Study Abroad
+ Sample consultant profiles
+ Free resources grid
+ Webinar listings
+Final Polish
+ Test all functionality
+ Optimize for mobile/tablet
+ Deploy upgraded site
