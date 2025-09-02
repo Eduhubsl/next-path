@@ -60,8 +60,8 @@ const consultantData = {
 };
 
 export default async function ConsultantProfilePage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
-  const consultant = consultantData[params.id as keyof typeof consultantData];
+  const { id } = params;
+  const consultant = consultantData[id as keyof typeof consultantData];
 
   if (!consultant) {
     return <div>Consultant not found</div>;
