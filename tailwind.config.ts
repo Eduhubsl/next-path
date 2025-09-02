@@ -49,7 +49,21 @@ export default {
           '3': 'hsl(var(--chart-3))',
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))'
-        }
+        },
+        // Custom calming colors
+        'calm-blue': 'hsl(var(--calm-blue))',
+        'gentle-green': 'hsl(var(--gentle-green))',
+        'warm-gray': 'hsl(var(--warm-gray))',
+        'soft-cream': 'hsl(var(--soft-cream))',
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        serif: ['Playfair Display', 'Georgia', 'serif'],
+      },
+      spacing: {
+        '18': '4.5rem',
+        '88': '22rem',
+        '128': '32rem',
       },
       borderRadius: {
         lg: 'var(--radius)',
