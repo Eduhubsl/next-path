@@ -59,8 +59,9 @@ const consultantData = {
   // Add other consultants here...
 };
 
-export default function ConsultantProfilePage({ params }: { params: Promise<{ id: string }> }) {
+export default function ConsultantProfilePage({ params }: { params: { id: string } }) {
   const { id } = params;
+  
   const consultant = consultantData[id as keyof typeof consultantData];
 
   if (!consultant) {
