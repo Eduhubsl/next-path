@@ -3,7 +3,8 @@
 // Keep Node runtime for server-side operations
 export const runtime = "nodejs";
 
-import { db } from "@/lib/firebase";
+// Using a relative path to ensure the module is found during the build process.
+import { db } from "../../../lib/firebase"; 
 import { doc, getDoc } from "firebase/firestore";
 
 // Define the type for our consultant data model, adding more fields
