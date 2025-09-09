@@ -6,13 +6,21 @@ export const runtime = "nodejs";
 import { db } from "@/lib/firebase";
 import { doc, getDoc } from "firebase/firestore";
 
-// Define the type for our consultant data model
+// Define the type for our consultant data model, adding more fields
 type Consultant = {
-  id:string;
+  id: string;
   name?: string;
   email?: string;
   specialization?: string;
-  // Add any other fields you store for a consultant
+  bio?: string; // Added for a richer profile
+  imageUrl?: string; // Added for a profile picture
+};
+
+// Define the canonical props type for a Next.js App Router page
+// This explicit type definition should resolve the build error.
+type PageProps = {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
 };
 
 // --- Data fetching function (server-side) ---
@@ -32,6 +40,8 @@ async function getConsultant(id: string): Promise<Consultant | null> {
       name: data.name,
       email: data.email,
       specialization: data.specialization,
+      bio: data.bio,
+      imageUrl: data.imageUrl,
     } as Consultant;
 
   } catch (error) {
@@ -41,17 +51,16 @@ async function getConsultant(id: string): Promise<Consultant | null> {
 }
 
 // --- The Page Component ---
-// This component fetches and displays a single consultant's profile.
-export default async function ConsultantProfilePage({ params }: { params: { id: string } }) {
+export default async function ConsultantProfilePage({ params }: PageProps) {
   const consultant = await getConsultant(params.id);
 
   if (!consultant) {
     return (
-      <main className="flex items-center justify-center h-screen">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold">Consultant Not Found</h1>
+      <main className="flex items-center justify-center min-h-screen bg-gray-50">
+        <div className="text-center p-8">
+          <h1 className="text-2xl font-bold text-gray-700">Consultant Not Found</h1>
           <p className="mt-2 text-gray-500">
-            Could not find a consultant with ID: {params.id}
+            We couldn't find a consultant with the ID: {params.id}
           </p>
         </div>
       </main>
@@ -59,20 +68,42 @@ export default async function ConsultantProfilePage({ params }: { params: { id: 
   }
 
   return (
-    <main className="p-6 md:p-8 bg-gray-50 min-h-screen">
-      <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-8">
-        <h1 className="text-3xl font-bold text-gray-800">{consultant.name ?? "Unnamed Consultant"}</h1>
-        <p className="mt-1 text-lg text-blue-600 font-medium">{consultant.specialization ?? "No specialization listed"}</p>
-        
-        <div className="mt-6 border-t pt-6">
-          <h2 className="text-xl font-semibold text-gray-700">Contact Information</h2>
-          <div className="mt-4 space-y-2">
-            {consultant.email && (
-              <p className="text-gray-600">
-                <strong className="font-medium text-gray-800">Email:</strong> {consultant.email}
-              </p>
-            )}
-            {/* Add more contact details here if available */}
+    <main className="bg-gray-100 min-h-screen p-4 sm:p-6 md:p-8">
+      <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div className="p-8">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
+            <img
+              className="w-32 h-32 rounded-full object-cover border-4 border-blue-200 shadow-md"
+              src={consultant.imageUrl || `https://placehold.co/400x400/E2E8F0/4A5568?text=${consultant.name?.[0]}`}
+              alt={consultant.name ?? "Consultant"}
+            />
+            <div className="text-center sm:text-left">
+              <h1 className="text-3xl font-bold text-gray-900">{consultant.name ?? "Unnamed Consultant"}</h1>
+              <p className="mt-1 text-lg text-blue-600 font-semibold">{consultant.specialization ?? "No specialization listed"}</p>
+            </div>
+          </div>
+
+          <div className="mt-8 border-t border-gray-200 pt-6">
+            <h2 className="text-xl font-bold text-gray-800">About</h2>
+            <p className="mt-3 text-gray-600 leading-relaxed">
+              {consultant.bio ?? "No biography available."}
+            </p>
+          </div>
+          
+          <div className="mt-8 border-t border-gray-200 pt-6">
+            <h2 className="text-xl font-bold text-gray-800">Contact Information</h2>
+            <div className="mt-4">
+              {consultant.email ? (
+                <p className="text-gray-600">
+                  <strong className="font-medium text-gray-900">Email:</strong> 
+                  <a href={`mailto:${consultant.email}`} className="text-blue-600 hover:underline ml-2">
+                    {consultant.email}
+                  </a>
+                </p>
+              ) : (
+                <p className="text-gray-500">Email not provided.</p>
+              )}
+            </div>
           </div>
         </div>
       </div>
