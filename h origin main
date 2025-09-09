@@ -1,0 +1,131 @@
+[33mcommit c17fc84236953d9d322b844f84968c25f82f2ea3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Wikum <wik.dburn@gmail.com>
+Date:   Tue Sep 9 23:54:05 2025 +0530
+
+    Add Firebase setup and consultant profile page
+
+[33mcommit 8c986eb861238d7c123c94439ee34456b587bdf9[m
+Author: Wikum <wik.dburn@gmail.com>
+Date:   Tue Sep 9 23:22:18 2025 +0530
+
+    Fix typing issue in consultants/[id]/page.tsx
+
+[33mcommit a2a405f81bd92587cb0d14420c07a5313a6d8962[m
+Author: Eduhubsl <wik.dburn@gmail.com>
+Date:   Tue Sep 9 22:57:39 2025 +0530
+
+    Update page.tsx
+
+[33mcommit d928f0aa55385532f2322171bcb4857129a467ad[m
+Author: Wikum <wik.dburn@gmail.com>
+Date:   Wed Sep 3 00:54:17 2025 +0530
+
+    fix: add component dependencies
+
+[33mcommit 66e80083ae4dc068ca86dfd2acac4beb957fcd93[m
+Author: Wikum <wik.dburn@gmail.com>
+Date:   Wed Sep 3 00:48:47 2025 +0530
+
+    fix: add component dependencies
+
+[33mcommit 86b671b3c103abcf5701504156a13af14c112bff[m
+Author: Wikum <wik.dburn@gmail.com>
+Date:   Wed Sep 3 00:22:36 2025 +0530
+
+    fix: add component dependencies
+
+[33mcommit 606ad8c723c97ff182aaba35e543e2603b0027f6[m
+Author: Wikum <wik.dburn@gmail.com>
+Date:   Wed Sep 3 00:15:39 2025 +0530
+
+    fix: add component dependencies
+
+[33mcommit 94b83a8d58bbd622d8b080f64dbbe93dd6d3e989[m
+Author: Wikum <wik.dburn@gmail.com>
+Date:   Wed Sep 3 00:10:51 2025 +0530
+
+    fix: add component dependencies
+
+[33mcommit 9fba3ddc665d702d164730ba3b32e74640148fed[m
+Author: Wikum <wik.dburn@gmail.com>
+Date:   Wed Sep 3 00:03:33 2025 +0530
+
+    fix: update nextjs version and build command
+
+[33mcommit cda534bc7e5ea7bdb4c4a7bc9da3ffe272b7c54a[m
+Author: Wikum <wik.dburn@gmail.com>
+Date:   Tue Sep 2 23:56:16 2025 +0530
+
+    fix: add component dependencies
+
+[33mcommit c07cc8d0e41b4e1759d295f92496e27ad2a1f879[m
+Author: Wikum <wik.dburn@gmail.com>
+Date:   Tue Sep 2 23:52:26 2025 +0530
+
+    fix: add component dependencies
+
+[33mcommit 838855df45f4f0d6eadd76fee6d5898573f66f56[m
+Author: Wikum <wik.dburn@gmail.com>
+Date:   Tue Sep 2 23:39:18 2025 +0530
+
+    fix: add component dependencies
+
+[33mcommit ee149550e16e916e149f8c8feff6bf8d691bdda7[m
+Author: Wikum <wik.dburn@gmail.com>
+Date:   Tue Sep 2 23:30:06 2025 +0530
+
+    fix: add sharp package for image optimization
+
+[33mcommit 8e1bd05a3794154631f11911055194611b638fa0[m
+Author: Wikum <wik.dburn@gmail.com>
+Date:   Tue Sep 2 23:23:34 2025 +0530
+
+    fix: add component dependencies
+
+[33mcommit 30f6863426c67c43ad9c45d1b8565bc2d3c0ad6d[m
+Author: Wikum <wik.dburn@gmail.com>
+Date:   Tue Sep 2 23:07:40 2025 +0530
+
+    fix: add component dependencies
+
+[33mcommit 981ed3701e8175c61230544284048118ebfe124a[m
+Author: Wikum <wik.dburn@gmail.com>
+Date:   Tue Sep 2 22:55:42 2025 +0530
+
+    feat: add input and select components
+
+[33mcommit c94b9ddc5cafbe022e874583dac6823a9c543b1f[m
+Author: Wikum <wik.dburn@gmail.com>
+Date:   Tue Sep 2 22:53:02 2025 +0530
+
+    feat: add input and select components
+
+[33mcommit 1072f55226aefb5ed4591e13a48cbcd07dad224a[m
+Author: Wikum <wik.dburn@gmail.com>
+Date:   Tue Sep 2 22:41:25 2025 +0530
+
+    Fix: correct syntax error in next.config.js
+
+[33mcommit 3809d4c045d9e3eccd40313666ddf9e249e2c2ae[m
+Author: Wikum <wik.dburn@gmail.com>
+Date:   Tue Sep 2 22:34:54 2025 +0530
+
+    Updated homepage UI and added new features
+
+[33mcommit c2d210f0fa522352aa4c4d68c3d57ec4111600e9[m
+Author: Wikum <wik.dburn@gmail.com>
+Date:   Tue Sep 2 10:12:55 2025 +0530
+
+    Initial commit
+
+[33mcommit 96add8c3537b706188d4db2dd32c7bb976fe9f8e[m
+Author: Wikum <wik.dburn@gmail.com>
+Date:   Sun Aug 31 13:47:54 2025 +0530
+
+    Fix Netlify deploy settings
+
+[33mcommit ebac075f1b3f5bfb68f489e13872243df062b5fe[m
+Author: Wikum <wik.dburn@gmail.com>
+Date:   Sat Aug 30 14:27:16 2025 +0530
+
+    Initial commit
