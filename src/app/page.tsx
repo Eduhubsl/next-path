@@ -10,7 +10,8 @@ import {
   Globe,
   Trophy,
   ArrowRight,
-  Star
+  Star,
+  Lightbulb, // Import the Lightbulb icon
 } from "lucide-react";
 import Link from "next/link";
 
@@ -68,6 +69,16 @@ const services = [
     gradient: 'from-teal-50 to-cyan-50',
     iconColor: 'text-teal-600',
     href: '/services/study-abroad'
+  },
+  // New Business Consultation Service
+  {
+    id: 'business-consultation',
+    title: 'Business Consultation',
+    description: 'Expert advice for startups and small businesses on strategy and growth',
+    icon: Lightbulb,
+    gradient: 'from-yellow-50 to-orange-50',
+    iconColor: 'text-yellow-600',
+    href: '/services/business-consultation'
   }
 ];
 
@@ -308,6 +319,7 @@ export default function HomePage() {
                 <li><Link href="/services/after-al" className="hover:text-background transition-colors">After A/L Guidance</Link></li>
                 <li><Link href="/services/vocational" className="hover:text-background transition-colors">Vocational Skills</Link></li>
                 <li><Link href="/services/study-abroad" className="hover:text-background transition-colors">Study Abroad</Link></li>
+                 <li><Link href="/services/business-consultation" className="hover:text-background transition-colors">Business Consultation</Link></li>
               </ul>
             </div>
 
