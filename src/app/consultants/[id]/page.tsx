@@ -1,59 +1,82 @@
 // src/app/consultants/[id]/page.tsx
 
-// Keep Node runtime (Firebase Web SDK doesn't run on Edge/Deno)
+// Keep Node runtime for server-side operations
 export const runtime = "nodejs";
 
-// --- Data access (server) ---
 import { db } from "@/lib/firebase";
 import { doc, getDoc } from "firebase/firestore";
 
-// Define the type for the props that Next.js passes to the page
-type PageProps = {
-  params: { id: string };
-};
-
-// Define the type for our consultant data
+// Define the type for our consultant data model
 type Consultant = {
-  id: string;
+  id:string;
   name?: string;
   email?: string;
   specialization?: string;
-  // add any other fields you store
+  // Add any other fields you store for a consultant
 };
 
-// Async function to fetch a single consultant from Firestore
+// --- Data fetching function (server-side) ---
 async function getConsultant(id: string): Promise<Consultant | null> {
-  const ref = doc(db, "consultants", id);
-  const snap = await getDoc(ref);
+  try {
+    const consultantDocRef = doc(db, "consultants", id);
+    const consultantSnap = await getDoc(consultantDocRef);
 
-  if (!snap.exists()) {
+    if (!consultantSnap.exists()) {
+      console.log(`No consultant found with ID: ${id}`);
+      return null;
+    }
+
+    const data = consultantSnap.data();
+    return {
+      id: consultantSnap.id,
+      name: data.name,
+      email: data.email,
+      specialization: data.specialization,
+    } as Consultant;
+
+  } catch (error) {
+    console.error("Error fetching consultant:", error);
     return null;
   }
-
-  const data = snap.data() as Omit<Consultant, "id">;
-  return { id: snap.id, ...data };
 }
 
 // --- The Page Component ---
-export default async function ConsultantProfilePage({ params }: PageProps) {
+// This component fetches and displays a single consultant's profile.
+export default async function ConsultantProfilePage({ params }: { params: { id: string } }) {
   const consultant = await getConsultant(params.id);
 
-  // If the consultant is not found, show a clear message
   if (!consultant) {
     return (
-      <main className="p-6">
-        <h1 className="text-xl font-bold">Consultant not found</h1>
-        <p className="text-sm text-gray-500">ID: {params.id}</p>
+      <main className="flex items-center justify-center h-screen">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold">Consultant Not Found</h1>
+          <p className="mt-2 text-gray-500">
+            Could not find a consultant with ID: {params.id}
+          </p>
+        </div>
       </main>
     );
   }
 
-  // If the consultant is found, display their profile
   return (
-    <main className="p-6 space-y-2">
-      <h1 className="text-2xl font-bold">{consultant.name ?? "Unnamed consultant"}</h1>
-      {consultant.email && <p>Email: {consultant.email}</p>}
-      {consultant.specialization && <p>Specialization: {consultant.specialization}</p>}
+    <main className="p-6 md:p-8 bg-gray-50 min-h-screen">
+      <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-8">
+        <h1 className="text-3xl font-bold text-gray-800">{consultant.name ?? "Unnamed Consultant"}</h1>
+        <p className="mt-1 text-lg text-blue-600 font-medium">{consultant.specialization ?? "No specialization listed"}</p>
+        
+        <div className="mt-6 border-t pt-6">
+          <h2 className="text-xl font-semibold text-gray-700">Contact Information</h2>
+          <div className="mt-4 space-y-2">
+            {consultant.email && (
+              <p className="text-gray-600">
+                <strong className="font-medium text-gray-800">Email:</strong> {consultant.email}
+              </p>
+            )}
+            {/* Add more contact details here if available */}
+          </div>
+        </div>
+      </div>
     </main>
   );
 }
+
