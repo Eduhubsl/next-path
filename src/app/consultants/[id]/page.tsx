@@ -3,57 +3,25 @@
 // Keep Node runtime for server-side operations
 export const runtime = "nodejs";
 
-// Using a relative path to ensure the module is found during the build process.
-import { db } from "../../../lib/firebase"; 
-import { doc, getDoc } from "firebase/firestore";
+// --- The Page Component (Test Version) ---
+// This is a simplified version to test the build process without Firebase.
+// We will add the data fetching back once the build succeeds.
 
-// Define the type for our consultant data model, adding more fields
-type Consultant = {
-  id: string;
-  name?: string;
-  email?: string;
-  specialization?: string;
-  bio?: string; // Added for a richer profile
-  imageUrl?: string; // Added for a profile picture
-};
-
-// Define the canonical props type for a Next.js App Router page
-// This explicit type definition should resolve the build error.
 type PageProps = {
   params: { id: string };
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
-// --- Data fetching function (server-side) ---
-async function getConsultant(id: string): Promise<Consultant | null> {
-  try {
-    const consultantDocRef = doc(db, "consultants", id);
-    const consultantSnap = await getDoc(consultantDocRef);
-
-    if (!consultantSnap.exists()) {
-      console.log(`No consultant found with ID: ${id}`);
-      return null;
-    }
-
-    const data = consultantSnap.data();
-    return {
-      id: consultantSnap.id,
-      name: data.name,
-      email: data.email,
-      specialization: data.specialization,
-      bio: data.bio,
-      imageUrl: data.imageUrl,
-    } as Consultant;
-
-  } catch (error) {
-    console.error("Error fetching consultant:", error);
-    return null;
-  }
-}
-
-// --- The Page Component ---
 export default async function ConsultantProfilePage({ params }: PageProps) {
-  const consultant = await getConsultant(params.id);
+  // Temporarily removed the call to getConsultant to isolate the build issue.
+  const consultant = {
+    id: params.id,
+    name: "Test Consultant Name",
+    email: "test@example.com",
+    specialization: "Testing Specialization",
+    bio: "This is a temporary bio for testing the page layout and build process.",
+    imageUrl: `https://placehold.co/400x400/E2E8F0/4A5568?text=Test`,
+  };
 
   if (!consultant) {
     return (
