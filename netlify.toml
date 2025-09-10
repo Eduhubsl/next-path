@@ -1,5 +1,3 @@
-This is the corrected version of your netlify.toml file.
-The problematic environment variable has been removed.
 [build]
 command = "npm run build"
 publish = ".next"
